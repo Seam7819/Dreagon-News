@@ -1,12 +1,26 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
 
     const navLink = <>
-    <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/about'>About</NavLink></li>
-    <li><NavLink to='/career'>Career</NavLink></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/about'>About</NavLink></li>
+        <li><NavLink to='/career'>Career</NavLink></li>
     </>
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error)
+            )
+    }
 
     return (
         <div className="navbar bg-base-100 mt-4">
@@ -39,15 +53,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex">
-        
-          <img className="w-10 rounded-full mr-4"
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-        
-                <Link to='/login'>
-                <button className="btn">LogIn</button>
-                </Link>
-                
+
+                <img className="w-10 rounded-full mr-4"
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+
+                {
+                    user ?
+                        <button onClick={handleLogOut} className="btn">Sign Out</button>
+                        :
+                        <Link to='/login'>
+                            <button className="btn">LogIn</button>
+                        </Link>
+                }
+
+
+
             </div>
         </div>
     );

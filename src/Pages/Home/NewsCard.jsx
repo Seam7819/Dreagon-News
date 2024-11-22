@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import moment from 'moment';
 import { BsBookmarksFill } from "react-icons/bs";
 import { FaShareAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NewsCard = () => {
 
@@ -56,7 +57,7 @@ const NewsCard = () => {
                                     
                                         
                                         <p className="py-10">{news.details.slice(0,270)} 
-                                        <a className="underline text-amber-300 font-bold" href="">ReadMore</a>
+                                        <Link className="underline text-amber-300 font-bold" to={`/news/${news._id}`}>ReadMore</Link>
                                         </p>
                                         
                                         
