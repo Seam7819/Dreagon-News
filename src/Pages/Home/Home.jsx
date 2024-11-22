@@ -2,6 +2,7 @@ import LeftSideBar from "../../Components/LeftSideBar/LeftSideBar";
 import RightSideBar from "../../Components/RightSideBar/RightSideBar";
 import Header from "../../Components/Shared/Header/Header";
 import Navbar from "../../Components/Shared/Navbar/Navbar";
+import NewsCard from "./NewsCard";
 
 const Home = () => {
     return (
@@ -12,8 +13,8 @@ const Home = () => {
                 <div className="">
                     <LeftSideBar></LeftSideBar>
                 </div>
-                <div className="col-span-2 border">
-                    <h1>News Coming Soon</h1>
+                <div className="col-span-2 ">
+                    <NewsCard></NewsCard>
                 </div>
                 <div className="">
                     <RightSideBar></RightSideBar>

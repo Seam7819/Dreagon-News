@@ -44,7 +44,7 @@ const Navbar = () => {
             alt="Tailwind CSS Navbar component"
             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
         
-                <Link>
+                <Link to='/login'>
                 <button className="btn">LogIn</button>
                 </Link>
                 
